@@ -1,0 +1,41 @@
+<h3>EJEMPLOS ngif</h3>
+<!-- Mostrar siempre el texto porque show = true -->
+<p *ngIf="show">Mostramos siempre este texto porque show = true</p>
+
+<!-- ngIf="user" para evitar leer propiedades 'undefined' -->
+<p *ngIf="user">{{user.name}}</p>
+
+<!-- ngIf="!show" -->
+<p *ngIf="!show">Ejemplo con la propiedad logica NOT(!)</p>
+
+<!-- Ejemplo con la propiedad logica AND -->
+<p *ngIf="a&&b">Mostrar esto solo si a AND b es TRUE</p>
+
+<!-- Ejemplo con la propiedad logica OR -->
+<p *ngIf="a||b">Mostrar esto solo si a OR b es TRUE</p>
+
+<!-- ngIf y else -> mostar este parrafo solo si show es true -->
+<p *ngIf="show ; else noMostrar">Mostrar esto solo este texto si show es true</p>
+<ng-template #noMostrar ><p></p></ng-template>
+
+<!-- ngIf y then -> mostar este parrafo solo si show es true -->
+<ng-template *ngIf="show ; then mostrar ; else noMostrar"></ng-template>
+<ng-template #mostrar ><p>Mostrar esto solo este texto si show es true</p></ng-template>
+<ng-template #noMostrar ><p></p></ng-template>
+
+
+<!-- tabla -->
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let persona of users">
+    <td *ngIf="persona">{{persona.firstName}}</td>
+    <td *ngIf="persona">{{persona.lastName}}</td>
+    <td *ngIf="persona">{{persona.emailId}}</td>
+    <td *ngIf="persona"><input type="button" value="Delete"><input type="button" value="Update"></td>
+  </tr>
+</table>
