@@ -1,1 +1,40 @@
-<p>ngfor works!</p>
+<h3>EJEMPLOS ngFor</h3>
+
+<!-- tabla -->
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Email</th>
+  </tr>
+  <tr *ngFor="let persona of users">
+    <td>{{persona.firstName}}</td>
+    <td>{{persona.lastName}}</td>
+    <td>{{persona.emailId}}</td>
+  </tr>
+</table>
+
+<!-- lista -->
+<ul>
+  <li *ngFor="let persona of users">{{persona.firstName}}, {{persona.lastName}}</li>
+</ul>
+
+<!-- lista con el indice del array-->
+<ul>
+  <li *ngFor="let persona of users ; let indice = index">{{indice}}.{{persona.firstName}}, {{persona.lastName}}</li>
+</ul>
+
+<!-- primer y ultimo elemento-->
+<dl>
+  <dd *ngFor="let persona of users ; let indice = index ; let primero = first ; let ultimo = last">
+    Row{{indice}}:Name:{{persona.firstName}} {{persona.lastName}}, ¿es el primer elemento?:{{primero}}, ¿es el ultimo elemento?:{{ultimo}}</dd>
+</dl>
+
+
+<!-- par o impar -->
+<dl>
+  <dd *ngFor="let persona of users ; let indice = index ; let impar = odd">
+    Row{{indice}}:Name:{{persona.firstName}} {{persona.lastName}}, ¿ES PAR:{{!impar}}, ¿ES IMPAR?:{{impar}}</dd>
+</dl>
+
+

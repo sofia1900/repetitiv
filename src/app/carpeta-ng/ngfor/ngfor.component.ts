@@ -10,4 +10,10 @@ import { CommonModule } from '@angular/common';
 })
 export class NgforComponent {
 
+  users = [
+    { id: 100, firstName: "Ramesh", lastName: "Fadatare", emailId: "ramesh@gmail.com" },
+    { id: 101, firstName: "Tony", lastName: "Stark", emailId: "tony@gmail.com" },
+    { id: 102, firstName: "Tom", lastName: "Cruise", emailId: "tom@gmail.com" }
+  ];
+
 }
