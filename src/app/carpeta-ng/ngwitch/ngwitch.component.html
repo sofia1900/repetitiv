@@ -12,7 +12,8 @@
 
 <b>ngSwitch and ngSwitchCase -- ejemplo numeros pares e impares</b>
 <div *ngFor="let numero of numbers">
-  <div ngSwitch="{{numero%2}}">
+  <!-- <div ngSwitch="{{numero%2}}> ASI NO FUNCIONA-->
+  <div [ngSwitch]="numero%2">
     <div *ngSwitchCase="0">{{numero}} - PAR</div>
     <div *ngSwitchCase="1">{{numero}} - IMPAR</div>
     <div *ngSwitchDefault>Nothing Found</div>
@@ -22,7 +23,8 @@
 <br><br>
 
 <b> ngSwitch and ngSwitchCase -enum example</b>
-<div [ngSwitch]="day">
+<!-- <div [ngSwitch]="day"> OTRA MANERA DE PONERLO ; FUNCIONA DE AMBAS MANERAS-->
+<div ngSwitch="{{day}}">
   <b *ngSwitchCase="'SUNDAY'"> SUNDAY</b>
   <b *ngSwitchCase="'MONDAY'"> MONDAY</b>
   <b *ngSwitchCase="'TUESDAY'">TUESDAY</b>
