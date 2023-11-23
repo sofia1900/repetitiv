@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -8,14 +8,25 @@ import { CommonModule } from '@angular/common';
   templateUrl: './ngwitch.component.html',
   styleUrl: './ngwitch.component.css'
 })
-export class NgwitchComponent {
+export class NgwitchComponent implements OnInit {
 
-  user = { id: 1, name: "Ramesh" };
+  constructor() { }
+  ngOnInit() {}
 
-  users = [
-    { id: 100, firstName: "Ramesh", lastName: "Fadatare", emailId: "ramesh@gmail.com" },
-    { id: 101, firstName: "Tony", lastName: "Stark", emailId: "tony@gmail.com" },
-    { id: 102, firstName: "Tom", lastName: "Cruise", emailId: "tom@gmail.com" }
-  ];
+  user = this.randomUser();
+  numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  day = this.randomDays();
+
+  randomDays(): string {
+    const id = Math.floor(Math.random() * 7);
+    return Days[id];
+  }
+  randomUser(): string {
+    const id = Math.floor(Math.random() * 3);
+    return Users[id];
+  }
 
 }
+
+export enum Users {Ramesh,Tom,Tony}
+export enum Days {SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY}
